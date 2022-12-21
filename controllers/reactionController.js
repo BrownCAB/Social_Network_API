@@ -4,7 +4,7 @@ module.exports = {
 // POST to create a reaction stored in a single thought's reactions array field
 // Create a User
   createReaction(req, res) {
-    User.create(req.body)
+    Thought.findOneAndUpdate({_id: req.params.thoughtId}, { $addToSet: { reactions: req.body } })
       .then((newReaction) => res.json(newReaction))
       .catch((err) => {
         console.log(err);
@@ -13,13 +13,10 @@ module.exports = {
   },
 // DELETE to pull and remove a reaction by the reaction's reactionId value
 deleteReaction(req, res) {
-    Reaction.findOneAndDelete({ _id: req.params.reactionId })
-      .then((reaction) =>
-        !user
-          ? res.status(404).json({ message: "No reaction with that ID" })
-          : Application.deleteMany({ _id: { $in: user.applications } })
-      )
-      .then(() => res.json({ message: "Reaction and deleted!" }))
+    Thought.findOneAndUpdate(
+      { _id: req.params.thoughtId },
+      { $pull: { reactions:{ _id: req.params.reactionId}} }
+      ).then(() => res.json({ message: "User and associated apps deleted!" }))
       .catch((err) => res.status(500).json(err));
   },
 

@@ -69,14 +69,17 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   // `DELETE` to remove a friend from a user's friend list
-  // removeFriend(req, res) {
-  //   User.findOneAndDelete({ _id: req.params.friendId })
-  //     .then((user) =>
-  //       !user
-  //         ? res.status(404).json({ message: "No user with that ID" })
-  //         : Application.deleteMany({ _id: { $in: user.applications } })
-  //     ).then(() => res.json({ message: "User and associated apps deleted!" }))
-  //     .catch((err) => res.status(500).json(err));
-  // },
+  removeFriend(req, res) {
+    User.findOneAndUpdate(
+      { _id: req.params.userId },
+      { $pull: { friends: req.params.friendId} }
+      )
+      .then((user) =>
+        !user
+          ? res.status(404).json({ message: "No user with that ID" })
+          : Application.deleteMany({ _id: { $in: user.applications } })
+      ).then(() => res.json({ message: "User and associated apps deleted!" }))
+      .catch((err) => res.status(500).json(err));
+  },
 
 }; // END

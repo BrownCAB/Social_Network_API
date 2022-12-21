@@ -4,7 +4,8 @@ module.exports = {
     // `GET` to get all thoughts
     async getAllThought (req, res) {
         try {
-            const allThought = await Thought.find({ _id: req.params.thoughtId })
+            const allThought = await Thought.find()
+            res.json(allThought)
         } catch {
         console.log(err);
         res.status(500).json(err);
@@ -13,7 +14,8 @@ module.exports = {
     // `GET` to get a single thought by its `_id`
     async getSingleThought (req, res) {
         try {
-            const singleThought = await Thought.findOne(_id: req.params.thoughtId)
+            const singleThought = await Thought.findOne({_id: req.params.thoughtId})
+            res.json(singleThought)
         } catch (error) {
             console.log(err);
          res.status(500).json(err);
@@ -40,11 +42,12 @@ module.exports = {
     // `PUT` to update a thought by its `_id`
     async updateThought (req, res) {
         try {
-            const updateThought = await Thought.findOneAndUpdate({ _id: req.params.thoughtId });
+            const updateThought = await Thought.findOneAndUpdate({ _id: req.params.thoughtId }, { $set: req.body });
             if(!updateThought) {
                 res.status(404).json({ message: 'No thought' });
                 return;
             }
+            res.json(updateThought)
         } catch (error) {
             console.log(err);
          res.status(500).json(err);

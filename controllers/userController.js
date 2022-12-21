@@ -57,7 +57,7 @@ module.exports = {
         return res.status(500).json(err);
       });
   },
-  //Delete User by Id and thoughts
+  // Delete User by Id and thoughts
   deleteUser(req, res) {
     User.findOneAndDelete({ _id: req.params.userId })
       .then((user) =>
@@ -68,15 +68,6 @@ module.exports = {
       .then(() => res.json({ message: "User and associated apps deleted!" }))
       .catch((err) => res.status(500).json(err));
   },
-    // Delete Thought
-    // deleteThought(req, res) {
-    //   Thought.deleteMany({ _id: { $in: deleteUser.thoughts } })
-    //     .then((thoughts) => res.json(thoughts))
-    //     .catch((err) => {
-    //       console.log(err);
-    //       return res.status(500).json(err);
-    //     });
-    // },
   // `DELETE` to remove a friend from a user's friend list
   // removeFriend(req, res) {
   //   User.findOneAndDelete({ _id: req.params.friendId })

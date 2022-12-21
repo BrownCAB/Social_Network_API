@@ -6,12 +6,13 @@ const {
   updateUser,
   addFriend,
   deleteUser,
+  // removeFrienfd,
 } = require('../../controllers/userController');
 
-// /api/courses - Create User
+// /api/users - Create User
 router.route('/').get(getAllUsers).post(createUser);
 
-// /api/courses/:userId - RUD
+// /api/users/:userId - RUD
 router
   .route('/:userId')
   .get(getSingleUser)

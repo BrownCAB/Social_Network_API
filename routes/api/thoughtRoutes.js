@@ -17,8 +17,4 @@ router
   .put(updateThought)
   .delete(deleteThought);
 
-
-
-
-
 module.exports = router;

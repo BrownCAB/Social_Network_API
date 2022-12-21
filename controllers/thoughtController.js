@@ -1,10 +1,10 @@
-const { Thought, User } = require('../models');
+const { Thought, User, Reaction } = require('../models');
 
 module.exports = {
     // `GET` to get all thoughts
     async getAllThought (req, res) {
         try {
-            const allThought = await Thought.find({ _id: req.params.friendId })
+            const allThought = await Thought.find({ _id: req.params.thoughtId })
         } catch {
         console.log(err);
         res.status(500).json(err);
@@ -13,7 +13,7 @@ module.exports = {
     // `GET` to get a single thought by its `_id`
     async getSingleThought (req, res) {
         try {
-            const singleThought = await Thought.findOne()
+            const singleThought = await Thought.findOne(_id: req.params.thoughtId)
         } catch (error) {
             console.log(err);
          res.status(500).json(err);
@@ -40,7 +40,7 @@ module.exports = {
     // `PUT` to update a thought by its `_id`
     async updateThought (req, res) {
         try {
-            const updateThought = await Thought.findOneAndUpdate({ _id: req.params.friendId });
+            const updateThought = await Thought.findOneAndUpdate({ _id: req.params.thoughtId });
             if(!updateThought) {
                 res.status(404).json({ message: 'No thought' });
                 return;
@@ -53,7 +53,7 @@ module.exports = {
     //`DELETE` to remove a thought by its `_id`
     async deleteThought (req, res) {
         try {
-            const deleteThought = await Thought.findOneAndDelete({ _id: req.params.friendId });
+            const deleteThought = await Thought.findOneAndDelete({ _id: req.params.thoughtId });
             if(!deleteThought) {
                 res.status(404).json({ message: 'No thought' });
                 return;

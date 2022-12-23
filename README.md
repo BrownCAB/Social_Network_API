@@ -24,7 +24,7 @@ As a social media startup I want an API for my social network that uses a NoSQL 
 ## Links
 
  <a href=" ">Walkthrough video</a>
-  <a href=" ">Download video</a>
+  <a href="https://drive.google.com/file/d/1xsdwpwDXIZBiundiGNXYo5ww3hACP2sQ/view?usp=share_link">Download video</a>
 
 ## Installation
 

@@ -7,7 +7,7 @@ const formatDate = (timestamp) => {
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
   // return formatted date
-    return months[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear();
+    return (months[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear());
 };
 
   module.exports = formatDate;

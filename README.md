@@ -15,7 +15,7 @@
 - [Questions](#Questions)
 
 ## Description
-<img src="assets/">
+<img src="assets/Social_Network_API.gif">
 <br>
 I'll be building a an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. You’ll use Express.js for routing, a MongoDB database, and the Mongoose ODM. In addition to using the Express.js Links to an external site.and Mongoose Links to an external site.packages, you may also optionally use a JavaScript date library of your choice or the native JavaScript Date object to format timestamps.
 
@@ -23,7 +23,8 @@ As a social media startup I want an API for my social network that uses a NoSQL 
 
 ## Links
 
- <a href=" ">Walkthrough video</a>
+
+  <a href=" ">Walkthrough video</a>
   <a href="https://drive.google.com/file/d/1xsdwpwDXIZBiundiGNXYo5ww3hACP2sQ/view?usp=share_link">Download video</a>
 
 ## Installation
